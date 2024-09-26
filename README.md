@@ -29,18 +29,20 @@ Para ejecutar el ejemplo primero debes iniciar el contenedor de Docker con el si
 docker compose up -d
 ```
 
-Luego puedes acceder a las siguientes URLs:
+### Abrir una terminal en el contenedor e instalar dependencias
 
-- **Obtener contrato del pedido**: `http://localhost:8086/get-contract.php`
-- **Subir contrato del pedido**: `http://localhost:8086/upload-contract.php`
-
-### Abrir una terminal en el contenedor
-
-Si quieres puedes abrir una terminal en el contenedor para hacer pruebas o ejecutar comandos adicionales. Para ello, ejecuta el siguiente comando:
+Debes ingresar al contenedor para instalar las dependencias de composer. Para ello, ejecuta el siguiente comando:
 
 ```bash
 # Ejecutar en tu host
 docker compose exec app /bin/bash
+```
+
+Una vez dentro del contenedor, ejecuta el siguiente comando para instalar las dependencias de composer:
+
+```bash
+# Ejecutar en la terminal del contenedor
+composer install
 ```
 
 y si quieres salir de la terminal del contenedor, ejecuta el siguiente comando:
@@ -49,6 +51,13 @@ y si quieres salir de la terminal del contenedor, ejecuta el siguiente comando:
 # Ejecutar en la terminal del contenedor
 exit
 ```
+
+### Obtener y subir contratos de prueba
+
+Luego puedes acceder a las siguientes URLs:
+
+- **Obtener contrato del pedido**: `http://localhost:8086/get-contract.php`
+- **Subir contrato del pedido**: `http://localhost:8086/upload-contract.php`
 
 ### Detener la aplicación
 
